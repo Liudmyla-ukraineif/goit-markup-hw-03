@@ -3,13 +3,13 @@
  --текст лого Raleway
  --текст основний Roboto
  --колір лого #2196f3
- --колір частини лого хедер №000000
+ --колір частини лого хедер #000000
  --колір частини лого footer #ffffff
 
  --колір основний тексту #757575
  --колір навигації заголовку #212121
  --колір акценту синій #2196F3
- --белий #FFFFFF;
+ --білий #FFFFFF;
  --колір посилань в footer rgba(255, 255, 255, 0.6)
 
 -- колір bgd header #ffffff
@@ -20,6 +20,9 @@
 
 
 :root {
+    --primary-font-family: "Roboto", sans-serif;
+    --secondary-font-family: 'Raleway', sans-serif;
+
     --logo-primary-text: #2196F3;
     --logo-header-text: #000000;
     --logo-footer-text: #ffffff;
@@ -31,7 +34,6 @@
 
     --white-color: #ffffff;
 
-    --bgd-header: #ffffff;
     --bgd-primary:#ffffff;
     --bgd-secondary: #f5f4fA;
     --bgd-hero:#2F303A;
@@ -41,10 +43,16 @@
 body {
     background-color: var(--bgd-primary);
     color:var(--primary-text-color);
-    font-family: "Roboto", sans-serif;
+
+    font-family: var(--primary-font-family);
     font-weight: 400;
     font-size: 14px;
     letter-spacing: 0.03em;
+}
+
+img {
+    display: block;
+    max-width: 100%;
 }
 
 .link {
@@ -52,15 +60,50 @@ body {
 }
 
 .list {
+    margin: 0;
+    padding: 0;
     list-style: none;
+}
+
+.container {
+    margin-left: auto;
+    margin-right: auto;
+    padding-right: 15px;
+    padding-left: 15px;
+    width: 1200px;
+}
+
+/* style section */
+.section {
+    padding-top: 94px;
+    padding-bottom: 94px;
+}
+
+.section.centered {
+    text-align: center;
+}
+
+.visually-hidden {
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    border: 0;
+    padding: 0;
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    margin: -1px;
 }
 
 /*style logo header and footer*/
 .logo {
-    font-family: 'Raleway', sans-serif;
+    margin-right: 93px;
+
+    font-family: var(--secondary-font-family);
     font-weight: 700;
     font-size: 26px;
-    line-height:1.2;
+    line-height: 1.2;
     
     color: var(--logo-primary-text);
 }
@@ -71,16 +114,35 @@ body {
     color: var(--logo-footer-text);
 }
 
-.header {
-    background-color: var(--bgd-header);
+/* style header */
+.main-header {
+    display: flex;
+    align-items: center;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
 }
 /* style navigation*/
+.site-nav {
+    display: flex;
+}
+
+.site-nav .item:not(:last-child) {
+    margin-right: 50px;
+}
+
 .nav-item {
+    display: block;
+    padding-top: 32px;
+    padding-bottom: 32px;
+    
+    color: var(--title-text-color);
+
     font-weight: 500;
     line-height: 1.14;
     letter-spacing: 0.02em;
-    
-    color: var(--title-text-color);
 }
 
 .nav-item:hover,
@@ -91,6 +153,14 @@ body {
     color: var(--accent-text);
 }
 
+.auth-nav {
+    display: flex;
+    margin-left: auto;
+}
+
+.auth-nav .item + .item {
+    margin-left: 50px;
+}
 .auth-item {
     color: var(--primary-text-color);
     background-color: var(--white-text);
@@ -107,29 +177,38 @@ body {
 
 /*style hero*/
 .hero {
+    letter-spacing: 0.06em;
+
     background-color: var(--bgd-hero);
     color: var(--white-color);
-    letter-spacing: 0.06em;
+
 }
 
 .hero-title {
+    margin-top: 0;
+    margin-bottom: 30px;
     font-weight: 900;
     font-size: 44px;
     line-height: 1.36; 
     text-transform: uppercase;
-
-    text-align: center;
 }
 
 /* style button */
 .button {
+    display: inline-block;
+    padding: 10px 32px;
+    min-width: 216px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    text-align: center;
+
     color: var(--white-color);
+    background-color: var(--logo-primary-text);
+
     font-weight: 700;
     font-size: 16px;
     line-height: 1.88;
-
-    background-color: var(--logo-primary-text);
-
+    
     cursor: pointer;
 }
 
@@ -138,8 +217,16 @@ body {
     background-color: var(--bgd-btn-active);
 }
 
-/* style section */
+
+/* style working */
+.work {
+    padding-bottom: 0;
+}
+
 .section-title {
+    margin-top: 0;
+    margin-bottom: 50px;
+
     color: var(--title-text-color);
 
     font-weight: 700;
@@ -147,9 +234,18 @@ body {
     line-height: 1.17;
 }
 
-/*style working*/
+.work-list {
+    display: flex;
+}
+
+.work-list .item + .item {
+    margin-left: 30px;
+}
 
 .work-title {
+    margin-top: 0;
+    margin-bottom: 10px;
+
     font-weight: 700;
     font-size: 14px;
     line-height: 1.14;
@@ -159,17 +255,41 @@ body {
     color: var(--title-text-color);
 }
 .work-item {
+    margin-top: 0;
+    margin-bottom: 0;
+
+    color: var(--primary-text-color);
     line-height: 1.71;
+}
+
+/* style classes */
+.classes-list {
+    display: flex;
+    justify-content: space-between;
 }
 
 /*style team*/
 .team {
     background-color: var(--bgd-secondary);
 }
+
 .team-list {
+    display: flex;
+    justify-content: space-between;
+}
+
+.team-item {
+    width: calc(100% / 4 - 30px);
     background-color: var(--bgd-primary);
 }
+
+.team-card {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
 .team-name {
+    margin-bottom: 10px;
+
     font-weight: 500;
     font-size: 16px;
     color: var(--title-text-color);
@@ -183,11 +303,15 @@ body {
 
 /* style footer */
 .footer {
+    padding-top: 60px;
+    padding-bottom: 60px;
+
     background-color: var(--bgd-hero);
     color: var(--text-color-footer);
 }
 
 .address {
+    margin-top: 20px;
     font-family: inherit;
     font-style: normal;
     line-height: 1.71;
@@ -197,6 +321,7 @@ body {
 }
 
 .address-item {
+    margin-top: 9px;
     color: var(--text-color-footer);
 }
 
@@ -216,7 +341,19 @@ body {
 }
 
 /*Button*/
+.button-nav {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 50px;
+}
+
 .list-button {
+    /* margin-left: 8px; */
+    padding: 6px 22px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    text-align: center;
+
     font-family: inherit;
     font-weight: 500;
     font-size: 16px;
@@ -228,10 +365,9 @@ body {
 
     cursor: pointer;
 }
-/* 
-.button.primary {
-    color: var(--white-text);
-} */
+.button-nav .painting-list + .painting-list {
+    margin-left: 8px;
+}
 
 .list-button:hover,
 .list-button:focus {
@@ -239,6 +375,22 @@ body {
     background-color: var(--accent-text);
 }
 
+.section-work-list {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: -30px;
+    margin-left: -30px;
+}
+
+.section-work-item {
+    flex-basis: calc(100% / 3 -30px);
+    margin-top: 30px;
+    margin-left: 30px;
+}
+
+.card {
+    padding: 20px 24px;
+}
 .section-work-title {
     font-weight: 700;
     font-size: 18px;
