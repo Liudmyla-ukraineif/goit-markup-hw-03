@@ -74,6 +74,13 @@ img {
 }
 
 /* style section */
+
+.section-hero {
+    padding-top: 200px;
+    padding-bottom: 200px;
+    text-align: center;
+}
+
 .section {
     padding-top: 94px;
     padding-bottom: 94px;
@@ -98,7 +105,9 @@ img {
 
 /*style logo header and footer*/
 .logo {
-    margin-right: 93px;
+    display: block;
+    padding-top: 24px;
+    padding-bottom: 25px;
 
     font-family: var(--secondary-font-family);
     font-weight: 700;
@@ -108,6 +117,7 @@ img {
     color: var(--logo-primary-text);
 }
 .logo-header {
+    margin-right: 93px;
     color: var(--logo-header-text);
 }
 .logo-footer {
@@ -175,6 +185,11 @@ img {
     color: var(--accent-text)
 }
 
+.auth-nav > .item {
+    display: block;
+    padding-top: 32px;
+    padding-bottom: 32px;
+}
 /*style hero*/
 .hero {
     letter-spacing: 0.06em;
@@ -186,7 +201,11 @@ img {
 
 .hero-title {
     margin-top: 0;
+    margin-right: auto;
     margin-bottom: 30px;
+    margin-left: auto;
+
+    max-width: 696px;
     font-weight: 900;
     font-size: 44px;
     line-height: 1.36; 
@@ -236,10 +255,16 @@ img {
 
 .work-list {
     display: flex;
+    flex-wrap: wrap;
+    margin-right: -30px;
 }
 
-.work-list .item + .item {
+/* .work-list .item + .item {
     margin-left: 30px;
+} */
+.work-list > .item {
+    flex-basis: calc(100% / 4 - 30px);
+    margin-right: 30px;
 }
 
 .work-title {
@@ -258,6 +283,7 @@ img {
     margin-top: 0;
     margin-bottom: 0;
 
+
     color: var(--primary-text-color);
     line-height: 1.71;
 }
@@ -275,11 +301,13 @@ img {
 
 .team-list {
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-right: -30px;
 }
 
 .team-item {
     width: calc(100% / 4 - 30px);
+    margin-right: 30px;
     background-color: var(--bgd-primary);
 }
 
@@ -310,6 +338,10 @@ img {
     color: var(--text-color-footer);
 }
 
+.address-nav > .item + .item {
+    margin-top: 9px;
+}
+
 .address {
     margin-top: 20px;
     font-family: inherit;
@@ -321,7 +353,6 @@ img {
 }
 
 .address-item {
-    margin-top: 9px;
     color: var(--text-color-footer);
 }
 
@@ -383,7 +414,7 @@ img {
 }
 
 .section-work-item {
-    flex-basis: calc(100% / 3 -30px);
+    flex-basis: calc(100% / 3 - 30px);
     margin-top: 30px;
     margin-left: 30px;
 }
